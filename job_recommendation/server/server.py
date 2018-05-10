@@ -9,7 +9,8 @@ def index():
 
 @app.route("/hello")
 def hello():
-    return "Hello World!"
+    return "Hello World~!"
+
 
 @app.route("/get_recommendation", methods=['POST'])
 def get_recommendation():
