@@ -68,21 +68,23 @@ var searchFont=
 }
 var galaxy=
 {
-    alignSelf: 'center',
-	justifyContent: 'center',
-	
-	backgroundColor: 'black',
 	width: 1000,
-	height: 1000,
-	margin: 'auto',	
+	height: 300,
+	margin: 'auto',
+	backgroundColor:'white',
 };
 var solar_system=
 {
-	    backgroundImage: "url('images/solar_system.jpg')",
-		width:1000,
-		height:1000,
+	backgroundColor: 'green',
+	width:1000,
+	height:1000,	
 };
-
+var resumeStyle=
+{
+	paddingTop:60,
+	fontFamily: 'Helvetica',
+	fontSize: 20,
+};
 /* 
 var fixedwidth= 
  {  		
@@ -117,10 +119,10 @@ export default class App extends React.Component {
 
     render() 
 	{
-		let bgColor=this.state.colorResult?"orange":"blue"
+		let bgColor=this.state.colorResult?"white":"red"
         return (
 
-			<div class="container">
+	<div class="container">
 			
 			<style>{'body { background-color: pink;}'}</style>
 				{/*<style>{'backgroundImage: `url("images/universe.jpg")`;'}</style>*/}
@@ -153,10 +155,13 @@ export default class App extends React.Component {
 						<button style={{backgroundColor: bgColor,cursor: 'pointer',fontFamily: 'Helvetica',fontSize:20}} onMouseOver={this.onMouseover.bind(this)} onMouseOut={this.onMouseover.bind(this)}>Start</button>
 						
 					</div>
-				
-					{/*<div class="galaxy" style={galaxy}>*/}
-						{/*<div class='solar_system' style={solar_system}></div>*/}
-					{/*</div>*/}
+					
+					<form style={galaxy}>
+						<p style={resumeStyle}>Upload your resume below</p>
+						<input type="file" id="uploadFile" name="file"/>
+					</form>
+					<div class="galaxy" style={galaxy}>
+					</div>
 				
 				</div>
 				
