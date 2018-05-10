@@ -149,8 +149,8 @@ export default class App extends React.Component {
 							  <option value="PM">Product Manager</option>
 						</select>
 					</div>
+
 					<div id="search" style={searchStyles}>
-						
 						<input type="text" style={searchFont} placeholder="Search" / >
 						<button style={{backgroundColor: bgColor,cursor: 'pointer',fontFamily: 'Helvetica',fontSize:20}} onMouseOver={this.onMouseover.bind(this)} onMouseOut={this.onMouseover.bind(this)}>Start</button>	
 					</div>
