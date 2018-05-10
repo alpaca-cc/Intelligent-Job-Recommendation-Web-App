@@ -1,0 +1,10 @@
+index = "idx"
+corpus = "line.toml"
+stop-words = "stopwords.txt"
+dataset = "indeed"
+prefix = "."
+[[analyzers]]
+	ngram = 1
+	method = "ngram-word"
+	[[analyzers.filter]]
+		type = "icu-tokenizer"
