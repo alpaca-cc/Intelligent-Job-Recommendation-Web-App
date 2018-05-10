@@ -5,16 +5,14 @@ import metapy
 
 def process_pdf(path):
     text = textract.process(path)
-    # print(text)
-    lines = text.split('\n')
-    # print(lines)
-    # for line in text:
-    #     print (line)
     return text
 
 
 def preprocess_resume_text(text):
-    content_list = text.split('\n')
+    content_list = text.splitlines()
+    # content_list = content_list.remove('')
+    print(content_list)
+    # print (content_list)
 
 
 def metapy_process(text, n):
@@ -38,9 +36,10 @@ def metapy_process(text, n):
 if __name__ == "__main__":
     # text = process_pdf('files/resume.pdf')
     text = process_pdf('files/resume3.docx')
+    preprocess_resume_text(text)
     text = unicode(text, 'utf-8')
     # type(text)
-    tokens = metapy_process(text, 3)
-    print(tokens)
+    # tokens = metapy_process(text, 3)
+    # print(tokens)
 
     # print (text)
