@@ -2,6 +2,7 @@
 import React from "react";
 import ReactDOM from 'react-dom';
 import { Redirect } from 'react-router-dom';
+import 'whatwg-fetch'
 
 import ListView from "./ListView.jsx";
 
@@ -163,6 +164,17 @@ export default class App extends React.Component {
 
 
     setRedirect() {
+		var input = document.querySelector('input[type="file"]')
+
+		var form = new FormData()
+		form.append('file', input.files[0])
+		form.append('user', 'cc')
+
+		fetch('/get_recommendation', {
+			method: 'post',
+			body: form
+		})
+
         this.setState({
             redirect: true
         })
