@@ -12,7 +12,7 @@ def preprocess_resume_text(text):
     content_list = text.splitlines()
     content = ' '.join(content_list)
     # content_list = content_list.remove('')
-    print(content)
+    # print(content)
     return content
     # print (content_list)
 
@@ -35,8 +35,9 @@ def metapy_process(text, n):
         tokens.append(token)
     return tokens
 
+
 def run_parse_resume(file_path):
-    text = process_pdf('files/resume4.pdf')
+    text = process_pdf(file_path)
     text = preprocess_resume_text(text)
     text = unicode(text, 'utf-8')
     return text
@@ -44,15 +45,15 @@ def run_parse_resume(file_path):
     #     f.write(str(text))
 
 
-if __name__ == "__main__":
-    # text = process_pdf('files/resume.pdf')
-    text = process_pdf('files/resume4.pdf')
-    text = preprocess_resume_text(text)
-    # text = unicode(text, 'utf-8')
-    with open('./supporting_files/resume-queries.txt', 'w+') as f:
-        f.write(str(text))
-    # type(text)
-    # tokens = metapy_process(text, 3)
-    # print(tokens)
+# if __name__ == "__main__":
+#     # text = process_pdf('files/resume.pdf')
+#     text = process_pdf('files/resume4.pdf')
+#     text = preprocess_resume_text(text)
+#     # text = unicode(text, 'utf-8')
+#     with open('./supporting_files/resume-queries.txt', 'w+') as f:
+#         f.write(str(text))
+#     # type(text)
+#     # tokens = metapy_process(text, 3)
+#     # print(tokens)
 
-    # print (text)
+#     # print (text)

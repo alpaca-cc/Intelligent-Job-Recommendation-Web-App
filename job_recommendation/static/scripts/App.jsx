@@ -170,10 +170,11 @@ export default class App extends React.Component {
 		form.append('file', input.files[0])
 		form.append('user', 'cc')
 
+		console.log("uploading to server...")
 		fetch('/get_recommendation', {
 			method: 'post',
 			body: form
-		})
+		}).then(console.log("upload complete"));
 
         this.setState({
             redirect: true
