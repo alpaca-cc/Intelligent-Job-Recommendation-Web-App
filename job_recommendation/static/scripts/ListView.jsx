@@ -2,16 +2,12 @@ import React, { Component } from 'react'
 import { List, Item, Segment, SegmentGroup, Card, Divider} from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
 import PropTypes from 'prop-types';
-// import styles from './ListView.scss';
+
+var $ = require('jquery');
 
 var titleColor = '#1c396a';
 var listViewStyle=
     {
-        // display:'flex',
-        // direction: 'row',
-        // alignSelf: 'center',
-        // justifyContent: 'center',
-        // textAlign: 'center',
         width: '50%',
         margin: 'auto',
         backgroundColor: 'white'
@@ -29,8 +25,6 @@ class ListView extends Component {
         //         this.personaliseGreeting(data);
         //     });
         // }
-
-        
         let resultList = [
                 {
                     "job_location": "Seattle, WA",
@@ -74,7 +68,7 @@ class ListView extends Component {
         let jobsList = resultList;
         let resultListItems = resultList.map((result, idx) => {
             return (
-                <Card style={{padding:20}}>
+                <Card style={{padding:20}} key={idx}>
                     <h5><a href={result.job_link} target="_blank">{result.job_title}</a></h5>
                     <div>{result.comp_name}</div>
                     <div>{result.job_location}</div>
