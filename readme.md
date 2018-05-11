@@ -4,12 +4,12 @@
 #### 1. An overview of the function of the code (i.e., what it does and what it can be used for). 
 
 
-This project is a simple web application that allows users to upload a resume, then get recommendations of jobs from indeed according to the information provided in the resume. In this way it will minimize the effort from users and save their time. It is a simple yet highly automated recommending system and gives our users customized recommendations. The job listings could be set up to updated periodically so that the recommendation will be updated over time.
+⋅⋅⋅This project is a simple web application that allows users to upload a resume, then get recommendations of jobs from indeed according to the information provided in the resume. In this way it will minimize the effort from users and save their time. It is a simple yet highly automated recommending system and gives our users customized recommendations. The job listings could be set up to updated periodically so that the recommendation will be updated over time.
 
 
 #### 2. Documentation of how the software is implemented with sufficient detail so that others can have a basic understanding of your code for future extension or any further improvement. 
 
-The web app is implemented using Flask as back-end and npm, webpack, react as front-end.
+⋅⋅⋅The web app is implemented using Flask as back-end and npm, webpack, react as front-end.
 	
 For recommendation, it used metapy package to build a simple search and rank system. The user's resume is parsed and used as the query. One resume is one query. The job description, summary and so on for the job listings are used as the documents to be ranked. One job listing is one document. For the analyzer, a unigram word analyzer with icu-tokenizer, lowercase, length, stopwords remover (list), empty sentence, porter2-stemmer filters is used. A bm25 ranker with k1=1.29, b=0.745, k3=500 is used as the ranking function. Currently, the first 20 job listings with the highest rank are shown to the users as their recommendation based their resume. User also have to select a field of interest in order to get job listings from this particular field. Currently, 10 different fields are supported.
 
