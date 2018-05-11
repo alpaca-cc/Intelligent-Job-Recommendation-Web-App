@@ -12,13 +12,14 @@ def visible(element):
     return True
 
 
-def run_crawler(keywords, start_page, end_page):
+def run_crawler(keywords, locations, start_page, end_page, keyword_short):
     # f = open("debug.txt", 'w+')
-    f_data = open("./indeed/indeed.dat", 'w+')
+    data_file_path = "./indeed/{}/{}.dat".format(keyword_short, keyword_short)
+    f_data = open(data_file_path, 'w+')
     # input
     keywords = keywords
     # locations = ['new', 'york']
-    locations = []
+    locations = locations
     # job_type = 'fulltime'
     job_type = ''
     sort_by = 'date'  # sort by date
@@ -109,15 +110,22 @@ def run_crawler(keywords, start_page, end_page):
             #     print(details)
             #     f.write(details.encode('utf-8').strip())
     f_data.close()
-    f.close()
-    with open('./supporting_files/jobs.json', 'w+') as fout:
+    json_file_path = "./indeed/{}/jobs.json".format(keyword_short)
+    with open(json_file_path, 'w+') as fout:
         # print("here")
         json.dump(job_listings, fout)
         fout.close()
 
 
 if __name__ == "__main__":
-    run_crawler(['software', 'programming'], 1, 10)
+
+    keywords_list = [['software', 'programming'], ['electrical', 'engineering'], ['chemistry'], ['mechanical', 'engineering'],
+                    ['business'], ['management'], ['marketing'], ['advertising'], ['art'], ['product', 'manager']]
+    keyword_short = ["sp", "ee", "ch", "me", "bu", "ma", "mk", "ad", "art", "pm"]
+    locations = []
+
+    for i in range(0, len(keywords_list)):
+        run_crawler(keywords_list[i], locations, 1, 10, keyword_short[i])
 
 
 

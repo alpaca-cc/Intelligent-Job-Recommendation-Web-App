@@ -39,8 +39,9 @@ def metapy_process(text, n):
 def run_parse_resume(file_path):
     text = process_pdf(file_path)
     text = preprocess_resume_text(text)
-    text = unicode(text, 'utf-8')
-    return text
+    with open('./server_files/resume-query.txt', 'w+') as f:
+        f.write(str(text))
+    # return text
     # with open('./supporting_files/resume-queries.txt', 'w+') as f:
     #     f.write(str(text))
 

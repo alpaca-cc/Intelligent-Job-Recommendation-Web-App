@@ -1,10 +1,23 @@
 index = "idx"
 corpus = "line.toml"
 stop-words = "stopwords.txt"
-dataset = "indeed"
-prefix = "."
+dataset = "art"
+prefix = "./indeed"
 [[analyzers]]
 	ngram = 1
 	method = "ngram-word"
 	[[analyzers.filter]]
 		type = "icu-tokenizer"
+	[[analyzers.filter]]
+		type = "lowercase"
+	[[analyzers.filter]]
+		max = 35
+		min = 2
+		type = "length"
+	[[analyzers.filter]]
+		file = "./indeed/stopwords.txt"
+		type = "list"
+	[[analyzers.filter]]
+		type = "empty-sentence"
+	[[analyzers.filter]]
+		type = "porter2-filter"

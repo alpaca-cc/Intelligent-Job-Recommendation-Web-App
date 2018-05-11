@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 const config = {
-    entry:  ['whatwg-fetch', __dirname + '/scripts/index.jsx'],
+    entry:  ['whatwg-fetch',  __dirname + '/scripts/index.jsx'],
     output: {
         path: __dirname + '/dist',
         filename: 'bundle.js',
