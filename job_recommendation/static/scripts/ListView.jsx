@@ -15,7 +15,25 @@ var listViewStyle=
 
 class ListView extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            resultList: [],
+            noResult: true
+        };
+    }
+
+    componentWillMount() {
+        if (this.props.location.state != undefined) {
+            this.setState({resultList: this.props.location.state.resultList})
+            if (this.props.location.state.resultList != undefined) {
+                this.setState({noResult: this.props.location.state.resultList.length === 0})
+            }
+        }
+    }
+
     render() {
+        // console.log(this.props.location.state)
 
 
         // call server......
@@ -51,22 +69,20 @@ class ListView extends Component {
                     "job_title": "Software Engineer"
                 }
         ];
+        // console.log(this.props.location.state.resultList.length);
 
-        console.log(resultList.length);
-        let noResult = (resultList.length === 0);
-
-        if (noResult) {
+        if (this.state.noResult) {
             return (
-                <div className="ResultList" style={{position: 'relative 50% 50%', transform: 'translate(50%,50%)'}}>
+                <div className="ResultList" style={{position: 'relative 50% 50%', transform: 'translate(40%,50%)'}}>
                     <List ordered={true}>
-                        <List.Content><h3>No Jobs...</h3></List.Content>
+                        <List.Content><h3>Sorry, No Job Found</h3></List.Content>
                     </List>
                 </div>
             )
         }
 
-        let jobsList = resultList;
-        let resultListItems = resultList.map((result, idx) => {
+        // let jobsList = this.props.location.state.resultList;
+        let resultListItems = this.state.resultList.map((result, idx) => {
             return (
                 <Card style={{padding:20}} key={idx}>
                     <h5><a href={result.job_link} target="_blank">{result.job_title}</a></h5>
