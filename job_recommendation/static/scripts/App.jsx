@@ -184,49 +184,49 @@ export default class App extends React.Component {
 	{
 		let bgColor=this.state.colorResult?"white":"grey";
 		if (this.state.redirect) {
-			// return <div>list!</div>
-			return <ListView/>;
+			return (
+				<ListView style={{color: textColor}}/>
+			);
 		}
         return (
 
+            <div style={{ backgroundColor: '#9FABC7', height:'100%', width:'100%', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                {/*<style>{'body { background-color: #9FABC7}'}</style>*/}
+                <div className="container Card" style={myCard}>
+				<div className="fixedwidth">
+                        <h1 style={headerStyles}>Intelligent Job Recommendation System</h1>
+                        <div id="job">
+                            <p style={jobStyles}>CS410 text information system</p>
+                        </div>
 
-        	<div className="container Card" style={myCard}>
-                {/*{this.renderRedirect()}*/}
-            	<style>{'body { background-color: #9FABC7; display: flex; align-items: center; justify-content: center}'}</style>
-            	{/*<style>{'backgroundImage: `url("images/universe.jpg")`;'}</style>*/}
+                        <div className="option" style={selectStyles}>
+                            <select style={selectFont}>
+                                <option value ="EE">Electrical Engineering</option>
+                                <option value ="CH">Chemistry</option>
+                                <option value ="SP">Software Programming</option>
+                                <option value ="ME">Mechanical Engineering</option>
+                                <option value ="BU">Business</option>
+                                <option value ="MA">Management</option>
+                                <option value="MK">Marketing</option>
+                                <option value="AD">Advertising</option>
+                                <option value="ART">Arts</option>
+                                <option value="PM">Product Manager</option>
+                            </select>
+                        </div>
 
-            	<div className="fixedwidth">
-                    <h1 style={headerStyles}>Intelligent Job Recommendation System</h1>
-                    <div id="job">
-                        <p style={jobStyles}>CS410 text information system</p>
+                        <form style={rowDisplay}>
+                            <p style={resumeStyle}>Select your resume: </p>
+                            <input type="file" id="uploadFile" name="file"/>
+                        </form>
+
+                        <div id="search" style={searchStyles}>
+                            <button style={{backgroundColor: bgColor,cursor: 'pointer',fontFamily: 'Helvetica',fontSize:20,marginTop:50}} onMouseOver={this.onMouseover.bind(this)} onMouseOut={this.onMouseover.bind(this)} onClick={this.setRedirect}>Upload and Recommend</button>
+                        </div>
+
+
                     </div>
-
-                    <div className="option" style={selectStyles}>
-                        <select style={selectFont}>
-                            <option value ="EE">Electrical Engineering</option>
-                            <option value ="CH">Chemistry</option>
-                            <option value ="SP">Software Programming</option>
-                            <option value ="ME">Mechanical Engineering</option>
-                            <option value ="BU">Business</option>
-                            <option value ="MA">Management</option>
-                            <option value="MK">Marketing</option>
-                            <option value="AD">Advertising</option>
-                            <option value="ART">Arts</option>
-                            <option value="PM">Product Manager</option>
-                        </select>
-                    </div>
-
-                    <form style={rowDisplay}>
-                        <p style={resumeStyle}>Select your resume: </p>
-                        <input type="file" id="uploadFile" name="file"/>
-                    </form>
-
-                    <div id="search" style={searchStyles}>
-                        <button style={{backgroundColor: bgColor,cursor: 'pointer',fontFamily: 'Helvetica',fontSize:20,marginTop:50}} onMouseOver={this.onMouseover.bind(this)} onMouseOut={this.onMouseover.bind(this)} onClick={this.setRedirect}>Upload and Recommend</button>
-                    </div>
-
-
 				</div>
+
 
         	</div>
 
