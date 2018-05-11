@@ -1,7 +1,7 @@
 index = "idx"
 corpus = "line.toml"
 stop-words = "stopwords.txt"
-dataset = "art"
+dataset = "ch"
 prefix = "./indeed"
 [[analyzers]]
 	ngram = 1
